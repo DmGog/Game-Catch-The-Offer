@@ -1,6 +1,6 @@
-import {Settings} from "./Settings.js";
-import {Scores} from "./Scores.js";
-import {Grid} from "./Grid.js";
+import {Settings} from "./settings/Settings.js";
+import {Scores} from "./scores/Scores.js";
+import {Grid} from "./grid/Grid.js";
 
 export function Game() {
     const container = document.createElement("div");
