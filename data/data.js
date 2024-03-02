@@ -14,3 +14,21 @@ export const data = {
         },
     },
 }
+
+let listener = null;
+
+function randomCoords(N) {
+    return Math.floor(Math.random() * N)
+}
+
+function changeOfferCoords (){
+    data.coords.x = randomCoords(data.settings.gridSize.rowsCount)
+    data.coords.y = randomCoords(data.settings.gridSize.columnCount)
+    listener();
+}
+
+setInterval(changeOfferCoords,2000)
+
+export function subscribe(observer) {
+    listener = observer;
+}

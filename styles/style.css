@@ -1,0 +1,9 @@
+table td {
+    border: 1px solid red;
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+}
+img {
+    width: 80px;
+}
