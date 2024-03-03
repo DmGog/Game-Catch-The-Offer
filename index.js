@@ -1,12 +1,20 @@
 import {Game} from "./components/game.js";
-import {subscribe} from "./data/data.js";
+import {data, GAME_STATUSES, subscribe} from "./data/data.js";
+import {Finish} from "./components/finish/finish.js";
 
 const appElement = document.getElementById("app");
 
 function renderUi() {
-    const gameElement = Game();
-    appElement.innerHTML = ""
-    appElement.append(gameElement);
+    appElement.innerHTML = "";
+    switch (data.gameStatus) {
+        case GAME_STATUSES.IN_PROGRESS:
+            const gameElement = Game();
+            appElement.append(gameElement);
+            break;
+        case GAME_STATUSES.FINISH:
+            const finishElement = Finish();
+            appElement.append(finishElement)
+    }
 }
 
 renderUi()
