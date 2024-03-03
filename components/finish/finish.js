@@ -4,7 +4,7 @@ export function Finish(){
     const element = document.createElement("div")
 
     if (data.scores.catchesCount === data.settings.pointsToWin){
-        element.append(` You WIN, points: ${data.scores.catchesCount}`)
-    } else {element.append(`Game Over, miss: ${data.scores.missesCount}`)}
+        element.append(` You WIN, points: ${data.settings.pointsToWin}`)
+    } else {element.append(`Game Over, miss: ${data.settings.maximumMissesCount}`)}
     return element
 }
