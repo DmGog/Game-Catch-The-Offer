@@ -1,7 +1,9 @@
 export const GAME_STATUSES = {
     SETTINGS: "settings",
     IN_PROGRESS: "in-progress",
-    FINISH: "finish",
+    FINISH: {
+        win: true,
+    }
 };
 
 
@@ -16,11 +18,11 @@ export const data = {
     },
     settings: {
         gridSize: {
-            columnCount: 3,
-            rowsCount: 3,
+            columnCount: 4,
+            rowsCount: 4,
         },
         maximumMissesCount: 3,
-        pointsToWin: 3,
+        pointsToWin: 10,
     },
     gameStatus: GAME_STATUSES.IN_PROGRESS,
 }
@@ -57,15 +59,27 @@ function runOfferJumpInterval() {
 runOfferJumpInterval();
 
 export function catchOffer() {
-    clearInterval(offerJumpIntervalId)
     data.scores.catchesCount++;
 
     if (data.scores.catchesCount === data.settings.pointsToWin) {
         data.gameStatus = GAME_STATUSES.FINISH;
+        clearInterval(offerJumpIntervalId)
     } else {
         changeOfferCoords();
         runOfferJumpInterval();
     }
+    listener();
+}
+
+export function restart() {
+    data.scores.catchesCount = 0;
+    data.scores.missesCount = 0;
+    data.gameStatus = GAME_STATUSES.SETTINGS;
+    runOfferJumpInterval();
+    listener();
+}
+export function start() {
+    data.gameStatus = GAME_STATUSES.IN_PROGRESS;
     listener();
 }
 
@@ -74,6 +88,7 @@ function missOffer() {
 
     if (data.scores.missesCount === data.settings.maximumMissesCount) {
         data.gameStatus = GAME_STATUSES.FINISH;
+        clearInterval(offerJumpIntervalId)
     } else {
         changeOfferCoords();
     }

@@ -1,6 +1,7 @@
 import {Game} from "./components/game.js";
 import {data, GAME_STATUSES, subscribe} from "./data/data.js";
 import {Finish} from "./components/finish/finish.js";
+import {Settings} from "./components/settings/Settings.js";
 
 const appElement = document.getElementById("app");
 
@@ -14,6 +15,12 @@ function renderUi() {
         case GAME_STATUSES.FINISH:
             const finishElement = Finish();
             appElement.append(finishElement)
+            break;
+        case GAME_STATUSES.SETTINGS:
+            const settingsElement = Settings()
+            appElement.append(settingsElement
+            )
+
     }
 }
 
