@@ -8,6 +8,11 @@ const appElement = document.getElementById("app");
 function renderUi() {
     appElement.innerHTML = "";
     switch (data.gameStatus) {
+        case GAME_STATUSES.SETTINGS:
+            const settingsElement = Settings()
+            appElement.append(settingsElement
+            )
+            break
         case GAME_STATUSES.IN_PROGRESS:
             const gameElement = Game();
             appElement.append(gameElement);
@@ -15,11 +20,6 @@ function renderUi() {
         case GAME_STATUSES.FINISH:
             const finishElement = Finish();
             appElement.append(finishElement)
-            break;
-        case GAME_STATUSES.SETTINGS:
-            const settingsElement = Settings()
-            appElement.append(settingsElement
-            )
 
     }
 }
