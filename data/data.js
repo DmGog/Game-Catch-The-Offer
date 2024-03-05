@@ -80,12 +80,12 @@ export function restart() {
     data.scores.catchesCount = 0;
     data.scores.missesCount = 0;
     data.gameStatus = GAME_STATUSES.SETTINGS;
-    runOfferJumpInterval();
     listener();
 }
 
 export function start() {
     data.gameStatus = GAME_STATUSES.IN_PROGRESS;
+    runOfferJumpInterval();
     listener();
 }
 

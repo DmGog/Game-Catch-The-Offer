@@ -1,12 +1,17 @@
-import {data, restart} from "../../data/data.js";
+import {data} from "../../data/data.js";
+import {RestartButton} from "./restar.js";
+import {Win} from "./win.js";
+import {Lose} from "./lose.js";
 
 export function Finish() {
     const element = document.createElement("div")
+    const winGame = Win()
+    const loseGame = Lose()
 
     if (data.scores.catchesCount === data.settings.pointsToWin) {
-        element.append(` You WIN, points: ${data.scores.catchesCount} miss: ${data.scores.missesCount}`)
+        element.append(winGame)
     } else {
-        element.append(`Game Over, miss: ${data.scores.missesCount} points: ${data.scores.catchesCount}`)
+        element.append(loseGame)
     }
 
     const restartButton = RestartButton();
@@ -19,13 +24,3 @@ export function Finish() {
 
 
 
-function RestartButton() {
-    const element = document.createElement("button")
-
-    element.innerHTML = "PLAY AGAIN";
-    element.addEventListener("click", () => {
-        restart()
-    })
-
-    return element
-}
