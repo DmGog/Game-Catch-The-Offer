@@ -24,7 +24,7 @@ export const data = {
         maximumMissesCount: 3,
         pointsToWin: 10,
     },
-    gameStatus: GAME_STATUSES.IN_PROGRESS,
+    gameStatus: GAME_STATUSES.SETTINGS,
 }
 
 let listener = null;
