@@ -2,8 +2,10 @@ import {data} from "../../../data/data.js";
 
 export function SelectLose() {
     const containerElement = document.createElement("div")
+    // containerElement.className = "select"
     const select = document.createElement("select");
     const selectLabel = document.createElement("label")
+    selectLabel.className = "label";
     selectLabel.textContent = "Maximum misses"
 
 

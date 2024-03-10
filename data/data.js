@@ -53,7 +53,7 @@ let offerJumpIntervalId = null;
 
 function runOfferJumpInterval() {
     clearInterval(offerJumpIntervalId);
-    offerJumpIntervalId = setInterval(missOffer, 1500)
+    offerJumpIntervalId = setInterval(missOffer, 2000)
 }
 
 // runOfferJumpInterval();
@@ -68,7 +68,7 @@ export function catchOffer() {
         SetCatchOffer(data.coords.x, data.coords.y);
         setTimeout((() => {
             ClearCatchOffer();
-        }), 1000);
+        }), 2000);
         changeOfferCoords();
         runOfferJumpInterval();
         listener();
@@ -96,8 +96,8 @@ function missOffer() {
     SetMissOffer(data.coords.x, data.coords.y);
     setTimeout((() => {
         ClearMissOffer();
-        listener();
-    }), 1000)
+        // listener();
+    }), 2000)
     changeOfferCoords();
     listener();
 

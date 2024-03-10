@@ -2,10 +2,12 @@ import {data} from "../../../data/data.js";
 
 
 export function SelectWin() {
-    const containerElement = document.createElement("div")
+    const containerElement = document.createElement("div");
+    // containerElement.className = "select";
     const select = document.createElement("select");
-    const selectLabel = document.createElement("label")
-    selectLabel.textContent = "Points to win"
+    const selectLabel = document.createElement("label");
+    selectLabel.className = "label";
+    selectLabel.textContent = "Points to win";
 
 
     const option1 = document.createElement("option");

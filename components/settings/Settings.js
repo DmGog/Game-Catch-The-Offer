@@ -5,14 +5,19 @@ import {SelectLose} from "../finish/Lose/SelectLose.js";
 
 
 export function Settings() {
-    const element = document.createElement("div");
+    const containerElement = document.createElement("div");
+    containerElement.className = "select-style"
     const gridSizeElement = SelectGridSize()
     const winElement = SelectWin()
     const loseElement = SelectLose()
     const startButtonElement = StartButton();
-    element.append(gridSizeElement, winElement, loseElement, startButtonElement)
+    containerElement.append(gridSizeElement, winElement, loseElement,startButtonElement)
 
-    return element
+
+    return containerElement
 }
+
+
+
 
 
