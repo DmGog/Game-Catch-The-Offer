@@ -1,4 +1,4 @@
-import {data, GAME_STATUSES} from "../../data/data.js";
+import {data} from "../../data/data.js";
 import {Cell} from "./cell/cell.js";
 
 // алгоритм отрисовки данных
