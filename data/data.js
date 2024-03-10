@@ -17,12 +17,12 @@ export const data = {
     catchCoords: null,
     missCoords: null,
     settings: {
-        gridSize: {
-            columnCount: 4,
-            rowsCount: 4,
+        gridSize:{
+            columnCount: 3,
+            rowsCount: 3,
         },
         maximumMissesCount: 3,
-        pointsToWin: 10,
+        pointsToWin: 20,
     },
     gameStatus: GAME_STATUSES.SETTINGS,
 }
@@ -53,10 +53,10 @@ let offerJumpIntervalId = null;
 
 function runOfferJumpInterval() {
     clearInterval(offerJumpIntervalId);
-    offerJumpIntervalId = setInterval(missOffer, 2000)
+    offerJumpIntervalId = setInterval(missOffer, 1500)
 }
 
-runOfferJumpInterval();
+// runOfferJumpInterval();
 
 export function catchOffer() {
     data.scores.catchesCount++;
@@ -83,6 +83,8 @@ export function restart() {
     listener();
 }
 
+
+
 export function start() {
     data.gameStatus = GAME_STATUSES.IN_PROGRESS;
     runOfferJumpInterval();
@@ -97,7 +99,7 @@ function missOffer() {
         listener();
     }), 1000)
     changeOfferCoords();
-    // listener();
+    listener();
 
     if (data.scores.missesCount === data.settings.maximumMissesCount) {
         data.gameStatus = GAME_STATUSES.FINISH;

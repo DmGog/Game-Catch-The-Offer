@@ -1,7 +1,7 @@
 import {data} from "../../data/data.js";
 import {RestartButton} from "./restar.js";
-import {Win} from "./win.js";
-import {Lose} from "./lose.js";
+import {Win} from "./Win/win.js";
+import {Lose} from "./Lose/lose.js";
 
 export function Finish() {
     const element = document.createElement("div")

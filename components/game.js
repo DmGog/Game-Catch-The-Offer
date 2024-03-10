@@ -8,6 +8,6 @@ export function Game() {
     const scoresElement = Scores();
     const gridElement = Grid();
 
-    container.append(/*settingsElement,*/ scoresElement, gridElement);
+    container.append(/*settingsElement, */scoresElement, gridElement);
     return container
 }

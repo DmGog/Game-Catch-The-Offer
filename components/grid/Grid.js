@@ -1,5 +1,6 @@
-import {data} from "../../data/data.js";
+import {data, GAME_STATUSES} from "../../data/data.js";
 import {Cell} from "./cell/cell.js";
+
 // алгоритм отрисовки данных
 export function Grid() {
     const container = document.createElement("table");
