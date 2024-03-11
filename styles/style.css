@@ -1,7 +1,10 @@
-body {
-    width: 1280px;
-    height: 850px;
-    background: radial-gradient(269.61% 186.59% at 96% 167%, rgb(76, 161, 210), rgb(40, 91, 174) 100%)
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background:rgb(40, 91, 174)
 }
 table {
     margin: 0 auto;
@@ -9,7 +12,6 @@ table {
     border-spacing: 12px;
 }
 table td {
-    box-sizing: border-box;
     border: 2px solid rgb(84, 186, 224);
     background:#4580C4;
     border-radius: 5px;
@@ -48,7 +50,6 @@ select {
     display: flex;
     flex-direction: column;
     width: 235px;
-    box-sizing: border-box;
     border: 1px solid rgb(79, 171, 255);
     border-radius: 30px;
     background: radial-gradient(269.61% 186.59% at 96% 167%, rgb(76, 161, 210), rgb(40, 91, 174) 100%);
@@ -75,9 +76,28 @@ select {
     justify-content: center;
     align-items: center;
     gap: 12px;
+    margin-top: 24px;
 }
 
 option {
     background:rgb(76, 161, 210);
+
+}
+
+.scores {
+    width: 375px;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 36px 12px 36px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(88, 150, 238, 0.3);
+    background:#528CDE;
+    color:#FFFFFF;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
 
 }
