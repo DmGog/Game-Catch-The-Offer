@@ -79,6 +79,8 @@ export function catchOffer() {
 export function restart() {
     data.scores.catchesCount = 0;
     data.scores.missesCount = 0;
+    data.settings.gridSize.rowsCount = 3;
+    data.settings.gridSize.columnCount = 3;
     data.gameStatus = GAME_STATUSES.SETTINGS;
     listener();
 }

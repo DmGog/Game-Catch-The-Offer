@@ -3,6 +3,8 @@ import {Cell} from "./cell/cell.js";
 
 // алгоритм отрисовки данных
 export function Grid() {
+    const containerTable = document.createElement("div")
+    containerTable.className = "table-container"
     const container = document.createElement("table");
 
     for (let y = 0; y < data.settings.gridSize.rowsCount; y++) {
@@ -13,7 +15,8 @@ export function Grid() {
             rowElement.append(cellElement)
         }
         container.append(rowElement)
+        containerTable.appendChild(container)
     }
-    return container
+    return containerTable
 }
 
