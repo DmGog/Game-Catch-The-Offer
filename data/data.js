@@ -23,6 +23,7 @@ export const data = {
         },
         maximumMissesCount: 3,
         pointsToWin: 20,
+        intervalTime: 2000,
     },
     gameStatus: GAME_STATUSES.SETTINGS,
 }
@@ -33,6 +34,7 @@ function randomCoords(N) {
     return Math.floor(Math.random() * N)
 }
 
+//перемещение Offer
 function changeOfferCoords() {
 
     let newX = 0;
@@ -53,7 +55,7 @@ let offerJumpIntervalId = null;
 
 function runOfferJumpInterval() {
     clearInterval(offerJumpIntervalId);
-    offerJumpIntervalId = setInterval(missOffer, 2000)
+    offerJumpIntervalId = setInterval(missOffer, data.settings.intervalTime)
 }
 
 // runOfferJumpInterval();
@@ -68,7 +70,7 @@ export function catchOffer() {
         SetCatchOffer(data.coords.x, data.coords.y);
         setTimeout((() => {
             ClearCatchOffer();
-        }), 2000);
+        }), data.settings.intervalTime);
         changeOfferCoords();
         runOfferJumpInterval();
         listener();
@@ -81,6 +83,7 @@ export function restart() {
     data.scores.missesCount = 0;
     data.settings.gridSize.rowsCount = 3;
     data.settings.gridSize.columnCount = 3;
+    data.settings.intervalTime = 2000;
     data.gameStatus = GAME_STATUSES.SETTINGS;
     listener();
 }
@@ -99,7 +102,7 @@ function missOffer() {
     setTimeout((() => {
         ClearMissOffer();
         // listener();
-    }), 2000)
+    }), data.settings.intervalTime)
     changeOfferCoords();
     listener();
 
