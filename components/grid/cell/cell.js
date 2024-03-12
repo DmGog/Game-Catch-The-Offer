@@ -1,7 +1,7 @@
 import {data} from "../../../data/data.js";
 import {Offer} from "./offer/offer.js";
-import {CatchOffer} from "./offer/CatchOffer.js";
-import {MissOffer} from "./offer/MissOffer.js";
+import {CatchOffer} from "./offer/catchOffer.js";
+import {MissOffer} from "./offer/missOffer.js";
 
 export function Cell(x, y) {
     const cellElement = document.createElement("td")

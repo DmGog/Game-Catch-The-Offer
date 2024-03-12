@@ -1,5 +1,5 @@
-import {Scores} from "./scores/Scores.js";
-import {Grid} from "./grid/Grid.js";
+import {Scores} from "./scores/scores.js";
+import {Grid} from "./grid/grid.js";
 // import {Settings} from "./settings/Settings.js";
 
 export function Game() {

@@ -3,7 +3,6 @@ import {data} from "../../../data/data.js";
 
 export function SelectWin() {
     const containerElement = document.createElement("div");
-    // containerElement.className = "select";
     const select = document.createElement("select");
     const selectLabel = document.createElement("label");
     selectLabel.className = "label";
@@ -55,7 +54,7 @@ export function SelectWin() {
 
             // проверка если case не работают
             default:
-                alert("Error points to win");
+                alert("Error");
         }
 
         data.settings.pointsToWin = selectedWin;

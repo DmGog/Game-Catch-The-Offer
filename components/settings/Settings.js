@@ -1,8 +1,8 @@
-import {StartButton} from "./StartButton.js";
-import {SelectGridSize} from "../grid/GridSize/SelectGridSize.js";
+import {StartButton} from "./startButton.js";
+import {SelectGridSize} from "../grid/GridSize/selectGridSize.js";
 import {SelectWin} from "../finish/Win/selectWin.js";
-import {SelectLose} from "../finish/Lose/SelectLose.js";
-import {SelectIntervalTime} from "./SelectIntervalTime.js";
+import {SelectLose} from "../finish/Lose/selectLose.js";
+import {SelectIntervalTime} from "./selectIntervalTime.js";
 
 
 export function Settings() {

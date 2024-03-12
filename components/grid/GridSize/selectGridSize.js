@@ -1,26 +1,25 @@
-import {data} from "../../data/data.js";
+import {data} from "../../../data/data.js";
 
-
-export function SelectIntervalTime() {
+export function SelectGridSize() {
     const containerElement = document.createElement("div")
     const select = document.createElement("select");
     const selectLabel = document.createElement("label")
     selectLabel.className = "label";
-    selectLabel.textContent = "ms after the catch"
+    selectLabel.textContent = "Grid Size"
 
 
     const option1 = document.createElement("option");
-    option1.text = "200-100 ms";
+    option1.text = "3x3";
     const option2 = document.createElement("option");
-    option2.text = "180-80 ms";
+    option2.text = "4x4";
     const option3 = document.createElement("option");
-    option3.text = "150-70 ms";
+    option3.text = "5x5";
     const option4 = document.createElement("option");
-    option4.text = "130-50 ms";
+    option4.text = "6x6";
     const option5 = document.createElement("option");
-    option5.text = "110-30 ms";
+    option5.text = "7x7";
     const option6 = document.createElement("option");
-    option6.text = "100-10 ms";
+    option6.text = "8x8";
 
     select.add(option1);
     select.add(option2);
@@ -30,36 +29,39 @@ export function SelectIntervalTime() {
     select.add(option6);
     containerElement.append(selectLabel, select)
     select.addEventListener("change", function () {
-        let selectedTime;
+        let selectedSize;
         let selectedOption = select.value;
         switch (selectedOption) {
-            case "200-100 ms":
-                selectedTime = 2000;
+            case "3x3":
+                selectedSize = [3, 3];
                 break;
-            case "180-80 ms":
-                selectedTime = 1800;
+            case "4x4":
+                selectedSize = [4, 4];
                 break;
-            case "150-70 ms":
-                selectedTime = 1500;
+            case "5x5":
+                selectedSize = [5, 5];
                 break;
-            case "130-50 ms":
-                selectedTime = 1300;
+            case "6x6":
+                selectedSize = [6, 6];
                 break;
-            case "110-30 ms":
-                selectedTime = 1100;
+            case "7x7":
+                selectedSize = [7, 7];
                 break;
-            case "100-10 ms":
-                selectedTime = 1000;
+            case "8x8":
+                selectedSize = [8, 8];
                 break;
 
-            // проверка если case не работают
+                // проверка если case не работают
             default:
-                alert("Error points to lose");
+                alert("Error");
         }
 
-        data.settings.intervalTime = selectedTime;
-
+        data.settings.gridSize.columnCount = selectedSize[0];
+        data.settings.gridSize.rowsCount = selectedSize[1];
     });
 
     return containerElement;
 }
+
+
+

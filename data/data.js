@@ -17,7 +17,7 @@ export const data = {
     catchCoords: null,
     missCoords: null,
     settings: {
-        gridSize:{
+        gridSize: {
             columnCount: 3,
             rowsCount: 3,
         },
@@ -58,8 +58,6 @@ function runOfferJumpInterval() {
     offerJumpIntervalId = setInterval(missOffer, data.settings.intervalTime)
 }
 
-// runOfferJumpInterval();
-
 export function catchOffer() {
     data.scores.catchesCount++;
 
@@ -70,10 +68,10 @@ export function catchOffer() {
         SetCatchOffer(data.coords.x, data.coords.y);
         setTimeout((() => {
             ClearCatchOffer();
+            listener();
         }), data.settings.intervalTime);
         changeOfferCoords();
         runOfferJumpInterval();
-        listener();
     }
     listener();
 }
@@ -83,11 +81,12 @@ export function restart() {
     data.scores.missesCount = 0;
     data.settings.gridSize.rowsCount = 3;
     data.settings.gridSize.columnCount = 3;
+    data.settings.maximumMissesCount = 3;
+    data.settings.pointsToWin = 20;
     data.settings.intervalTime = 2000;
     data.gameStatus = GAME_STATUSES.SETTINGS;
     listener();
 }
-
 
 
 export function start() {
@@ -101,16 +100,16 @@ function missOffer() {
     SetMissOffer(data.coords.x, data.coords.y);
     setTimeout((() => {
         ClearMissOffer();
-        // listener();
+        listener();
     }), data.settings.intervalTime)
     changeOfferCoords();
-    listener();
 
     if (data.scores.missesCount === data.settings.maximumMissesCount) {
         data.gameStatus = GAME_STATUSES.FINISH;
         clearInterval(offerJumpIntervalId)
     } else {
         changeOfferCoords();
+        runOfferJumpInterval();
     }
     listener();
 }

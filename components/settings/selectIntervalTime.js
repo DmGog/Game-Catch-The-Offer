@@ -1,26 +1,26 @@
-import {data} from "../../../data/data.js";
+import {data} from "../../data/data.js";
 
-export function SelectLose() {
+
+export function SelectIntervalTime() {
     const containerElement = document.createElement("div")
-    // containerElement.className = "select"
     const select = document.createElement("select");
     const selectLabel = document.createElement("label")
     selectLabel.className = "label";
-    selectLabel.textContent = "Maximum misses"
+    selectLabel.textContent = "ms after the catch"
 
 
     const option1 = document.createElement("option");
-    option1.text = "3";
+    option1.text = "200-100 ms";
     const option2 = document.createElement("option");
-    option2.text = "5";
+    option2.text = "180-80 ms";
     const option3 = document.createElement("option");
-    option3.text = "7";
+    option3.text = "150-70 ms";
     const option4 = document.createElement("option");
-    option4.text = "9";
+    option4.text = "130-50 ms";
     const option5 = document.createElement("option");
-    option5.text = "11";
+    option5.text = "110-30 ms";
     const option6 = document.createElement("option");
-    option6.text = "13";
+    option6.text = "100-10 ms";
 
     select.add(option1);
     select.add(option2);
@@ -30,34 +30,34 @@ export function SelectLose() {
     select.add(option6);
     containerElement.append(selectLabel, select)
     select.addEventListener("change", function () {
-        let selectedLose;
+        let selectedTime;
         let selectedOption = select.value;
         switch (selectedOption) {
-            case "3":
-                selectedLose = 3;
+            case "200-100 ms":
+                selectedTime = 2000;
                 break;
-            case "5":
-                selectedLose = 5;
+            case "180-80 ms":
+                selectedTime = 1800;
                 break;
-            case "7":
-                selectedLose = 7;
+            case "150-70 ms":
+                selectedTime = 1500;
                 break;
-            case "9":
-                selectedLose = 9;
+            case "130-50 ms":
+                selectedTime = 1300;
                 break;
-            case "11":
-                selectedLose = 11;
+            case "110-30 ms":
+                selectedTime = 1100;
                 break;
-            case "13":
-                selectedLose = 13;
+            case "100-10 ms":
+                selectedTime = 1000;
                 break;
 
             // проверка если case не работают
             default:
-                alert("Error points to lose");
+                alert("Error");
         }
 
-        data.settings.maximumMissesCount = selectedLose;
+        data.settings.intervalTime = selectedTime;
 
     });
 
