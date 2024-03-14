@@ -1,4 +1,3 @@
-import {StartButton} from "./startButton.js";
 import {SelectGridSize} from "../grid/GridSize/selectGridSize.js";
 import {SelectWin} from "../finish/Win/selectWin.js";
 import {SelectLose} from "../finish/Lose/selectLose.js";
@@ -12,10 +11,7 @@ export function Settings() {
     const winElement = SelectWin()
     const loseElement = SelectLose()
     const intervalTimeElement = SelectIntervalTime()
-    const startButtonElement = StartButton();
-    containerElement.append(gridSizeElement, winElement, intervalTimeElement, loseElement, startButtonElement)
-
-
+    containerElement.append(gridSizeElement, winElement, intervalTimeElement, loseElement)
     return containerElement
 }
 

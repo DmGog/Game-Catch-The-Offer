@@ -1,7 +1,7 @@
 import {Game} from "./components/game.js";
 import {data, GAME_STATUSES, subscribe} from "./data/data.js";
 import {Finish} from "./components/finish/finish.js";
-import {Settings} from "./components/settings/Settings.js";
+import {StartPageGame} from "./components/startPageGame.js";
 
 const appElement = document.getElementById("app");
 
@@ -10,7 +10,7 @@ function renderUi() {
 
     switch (data.gameStatus) {
         case GAME_STATUSES.SETTINGS:
-            const settingsElement = Settings()
+            const settingsElement = StartPageGame()
             appElement.append(settingsElement
             )
             break
