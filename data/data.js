@@ -45,8 +45,7 @@ function changeOfferCoords() {
         newY = randomCoords(data.settings.gridSize.rowsCount)
     }
     while (
-        newX === data.coords.x && newY === data.coords.y
-        )
+        newX === data.coords.x && newY === data.coords.y)
     data.coords.x = newX;
     data.coords.y = newY;
 }
@@ -70,7 +69,7 @@ export function catchOffer() {
             ClearCatchOffer();
             listener();
         }), data.settings.intervalTime);
-        changeOfferCoords();
+        changeOfferCoords()
         runOfferJumpInterval();
     }
     listener();
@@ -97,19 +96,19 @@ export function start() {
 
 function missOffer() {
     data.scores.missesCount++;
-    SetMissOffer(data.coords.x, data.coords.y);
-    setTimeout((() => {
-        ClearMissOffer();
-        listener();
-    }), data.settings.intervalTime)
-    changeOfferCoords();
+
 
     if (data.scores.missesCount === data.settings.maximumMissesCount) {
         data.gameStatus = GAME_STATUSES.FINISH;
         clearInterval(offerJumpIntervalId)
     } else {
+        SetMissOffer(data.coords.x, data.coords.y);
+        setTimeout((() => {
+            ClearMissOffer();
+            listener();
+        }), data.settings.intervalTime)
         changeOfferCoords();
-        runOfferJumpInterval();
+        runOfferJumpInterval()
     }
     listener();
 }

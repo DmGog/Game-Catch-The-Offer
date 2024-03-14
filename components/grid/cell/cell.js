@@ -5,7 +5,8 @@ import {MissOffer} from "./offer/missOffer.js";
 
 export function Cell(x, y) {
     const cellElement = document.createElement("td")
-    if (x === data.coords.x && y === data.coords.y) {
+
+    if (x === data.coords?.x && y === data.coords?.y) {
         cellElement.append(Offer())
     }
     if (x === data.catchCoords?.x && y === data.catchCoords?.y) {
