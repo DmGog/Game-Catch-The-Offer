@@ -160,24 +160,27 @@ option {
         font-size: 14px;
         margin: 10px auto;
     }
-}
 
-select {
 
-    width: 260px;
-    font-size: 12px;
-}
+    select {
 
-.select-style {
-    flex-direction: column;
-    margin-top: 5px;
-    gap: 5px;
-}
+        width: 260px;
+        font-size: 12px;
+    }
 
-.label {
-    font-size: 14px;
-}
+    .select-style {
+        flex-direction: column;
+        margin-top: 5px;
+        gap: 5px;
+    }
 
-.hidden {
-    display: none;
+    .label {
+        font-size: 14px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+
 }
