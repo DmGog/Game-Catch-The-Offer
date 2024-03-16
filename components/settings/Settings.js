@@ -6,7 +6,7 @@ import {SelectIntervalTime} from "./selectIntervalTime.js";
 
 export function Settings() {
     const containerElement = document.createElement("div");
-    containerElement.className = "select-style"
+    containerElement.className = "select-style hidden"
     const gridSizeElement = SelectGridSize()
     const winElement = SelectWin()
     const loseElement = SelectLose()

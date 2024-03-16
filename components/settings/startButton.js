@@ -9,7 +9,7 @@ export function StartButton() {
     element.addEventListener("click", () => {
         start()
     })
-
+    element.classList.add("start-button");
     return element
 }
 
