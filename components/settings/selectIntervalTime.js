@@ -1,6 +1,5 @@
 import {data} from "../../data/data.js";
 
-
 export function SelectIntervalTime() {
     const containerElement = document.createElement("div")
     const select = document.createElement("select");

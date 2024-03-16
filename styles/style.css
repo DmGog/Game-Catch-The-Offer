@@ -113,3 +113,40 @@ option {
     margin: 36px auto;
     font-family: Roboto, sans-serif;
 }
+
+/* Стили для мобильных устройств (ширина экрана до 768px) */
+@media only screen and (max-width: 768px) {
+    .table-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        width: 100%;
+        border-spacing: 6px;
+    }
+
+    table td {
+        width: 60px;
+        height: 60px;
+        padding: 8px;
+    }
+
+    button {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .select-style {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .scores {
+        width: 80%;
+        max-width: 320px;
+        gap: 6px;
+        padding: 10px 24px 10px 24px;
+        font-size: 14px;
+    }
+}
