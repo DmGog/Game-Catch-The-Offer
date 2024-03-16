@@ -3,20 +3,24 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background:rgb(40, 91, 174)
+
+body {
+    background: rgb(40, 91, 174)
 }
-.table-container{
+
+.table-container {
     display: flex;
     justify-content: center;
 }
+
 table {
     border-collapse: separate;
     border-spacing: 12px;
 }
+
 table td {
     border: 2px solid rgb(84, 186, 224);
-    background:#4580C4;
+    background: #4580C4;
     border-radius: 5px;
     width: 85px;
     height: 85px;
@@ -57,7 +61,7 @@ select {
     border: 1px solid rgb(79, 171, 255);
     border-radius: 30px;
     background: radial-gradient(269.61% 186.59% at 96% 167%, rgb(76, 161, 210), rgb(40, 91, 174) 100%);
-    color:#FFFFFF;
+    color: #FFFFFF;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 6px 12px 6px 12px;
@@ -92,7 +96,7 @@ select {
 }
 
 option {
-    background:rgb(76, 161, 210);
+    background: rgb(76, 161, 210);
     font-family: Roboto, sans-serif;
 }
 
@@ -105,8 +109,8 @@ option {
     padding: 12px 36px 12px 36px;
     border-radius: 30px;
     box-shadow: 0 4px 8px 0 rgba(88, 150, 238, 0.3);
-    background:#528CDE;
-    color:#FFFFFF;
+    background: #528CDE;
+    color: #FFFFFF;
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;
@@ -122,19 +126,21 @@ option {
     }
 
     table {
-        width: 100%;
+
         border-spacing: 6px;
     }
 
     table td {
-        width: 60px;
-        height: 60px;
-        padding: 8px;
+        width: 50px;
+        height: 50px;
+        padding: 6px;
     }
 
     button {
         width: 80%;
-        max-width: 300px;
+        max-width: 200px;
+        margin-top: 120px;
+        font-size: 19px;
     }
 
     .select-style {
@@ -144,9 +150,23 @@ option {
 
     .scores {
         width: 80%;
-        max-width: 320px;
+        max-width: 200px;
         gap: 6px;
         padding: 10px 24px 10px 24px;
         font-size: 14px;
     }
+}
+
+select {
+    width: 190px;
+    font-size: 12px;
+}
+
+.select-style {
+    margin-top: 5px;
+    gap: 0;
+}
+
+.label {
+    font-size: 14px;
 }
