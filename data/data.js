@@ -76,6 +76,7 @@ export function catchOffer() {
 }
 
 export function restart() {
+    localStorage.clear();
     data.scores.catchesCount = 0;
     data.scores.missesCount = 0;
     data.settings.gridSize.rowsCount = 3;
@@ -86,6 +87,11 @@ export function restart() {
     data.gameStatus = GAME_STATUSES.SETTINGS;
     listener();
 }
+
+// удалить все сохраненные настройки при обновлении страницы
+window.addEventListener('beforeunload', function(event) {
+    localStorage.clear();
+});
 
 
 export function start() {

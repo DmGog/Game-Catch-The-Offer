@@ -1,63 +1,47 @@
 import {data} from "../../../data/data.js";
 
 export function SelectGridSize() {
-    const containerElement = document.createElement("div")
+    const containerElement = document.createElement("div");
     const select = document.createElement("select");
-    const selectLabel = document.createElement("label")
+    select.id = "selectGrid";
+
+    const selectLabel = document.createElement("label");
     selectLabel.className = "label";
-    selectLabel.textContent = "Grid Size"
+    selectLabel.textContent = "Grid Size";
+
+    const options = [
+        { text: "3x3", value: [3, 3] },
+        { text: "4x4", value: [4, 4] },
+        { text: "5x5", value: [5, 5] },
+        { text: "6x6", value: [6, 6] },
+        { text: "7x7", value: [7, 7] },
+        { text: "8x8", value: [8, 8] },
+    ];
+
+    options.forEach(optionData => {
+        const option = document.createElement("option");
+        option.text = optionData.text;
+        option.value = optionData.text; // Устанавливаем значение опции как текст
+        select.appendChild(option);
+    });
+
+    containerElement.append(selectLabel, select);
+
+    const savedGridSize = localStorage.getItem("gridSize");
+    if (savedGridSize) {
+        select.value = savedGridSize; // Устанавливаем выбранное значение из localStorage
+    }
 
 
-    const option1 = document.createElement("option");
-    option1.text = "3x3";
-    const option2 = document.createElement("option");
-    option2.text = "4x4";
-    const option3 = document.createElement("option");
-    option3.text = "5x5";
-    const option4 = document.createElement("option");
-    option4.text = "6x6";
-    const option5 = document.createElement("option");
-    option5.text = "7x7";
-    const option6 = document.createElement("option");
-    option6.text = "8x8";
-
-    select.add(option1);
-    select.add(option2);
-    select.add(option3);
-    select.add(option4);
-    select.add(option5);
-    select.add(option6);
-    containerElement.append(selectLabel, select)
     select.addEventListener("change", function () {
-        let selectedSize;
-        let selectedOption = select.value;
-        switch (selectedOption) {
-            case "3x3":
-                selectedSize = [3, 3];
-                break;
-            case "4x4":
-                selectedSize = [4, 4];
-                break;
-            case "5x5":
-                selectedSize = [5, 5];
-                break;
-            case "6x6":
-                selectedSize = [6, 6];
-                break;
-            case "7x7":
-                selectedSize = [7, 7];
-                break;
-            case "8x8":
-                selectedSize = [8, 8];
-                break;
-
-                // проверка если case не работают
-            default:
-                alert("Error");
-        }
+        const selectedOption = select.value;
+        const selectedSize = options.find(optionData => optionData.text === selectedOption).value;
 
         data.settings.gridSize.columnCount = selectedSize[0];
         data.settings.gridSize.rowsCount = selectedSize[1];
+
+        localStorage.setItem("gridSize", selectedOption);
+
     });
 
     return containerElement;

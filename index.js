@@ -17,6 +17,10 @@ function renderUi() {
         case GAME_STATUSES.IN_PROGRESS:
             const gameElement = Game();
             appElement.append(gameElement);
+            document.getElementById("selectWin").classList.add("disabled");
+            document.getElementById("selectLose").classList.add("disabled");
+            document.getElementById("selectTime").classList.add("disabled");
+            document.getElementById("selectGrid").classList.add("disabled");
             break;
         case GAME_STATUSES.FINISH:
             const finishElement = Finish();

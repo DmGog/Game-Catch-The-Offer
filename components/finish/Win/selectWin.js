@@ -4,6 +4,7 @@ import {data} from "../../../data/data.js";
 export function SelectWin() {
     const containerElement = document.createElement("div");
     const select = document.createElement("select");
+    select.id = "selectWin";
     const selectLabel = document.createElement("label");
     selectLabel.className = "label";
     selectLabel.textContent = "Points to win";
@@ -29,6 +30,13 @@ export function SelectWin() {
     select.add(option5);
     select.add(option6);
     containerElement.append(selectLabel, select)
+
+    // Устанавливаем сохраненное значение или значение по умолчанию
+
+    const savedPointsToWin = localStorage.getItem("pointsToWin");
+    const defaultPointsToWin = savedPointsToWin ? savedPointsToWin : 20;
+    select.value = `${defaultPointsToWin} pts`;
+
     select.addEventListener("change", function () {
         let selectedWin;
         let selectedOption = select.value;
@@ -58,8 +66,9 @@ export function SelectWin() {
         }
 
         data.settings.pointsToWin = selectedWin;
-
+        localStorage.setItem("pointsToWin", selectedWin);
     });
+
 
     return containerElement;
 }

@@ -3,6 +3,7 @@ import {data} from "../../../data/data.js";
 export function SelectLose() {
     const containerElement = document.createElement("div")
     const select = document.createElement("select");
+    select.id = "selectLose";
     const selectLabel = document.createElement("label")
     selectLabel.className = "label";
     selectLabel.textContent = "Maximum misses"
@@ -27,7 +28,13 @@ export function SelectLose() {
     select.add(option4);
     select.add(option5);
     select.add(option6);
-    containerElement.append(selectLabel, select)
+    containerElement.append(selectLabel, select);
+
+    // Устанавливаем сохраненное значение или значение по умолчанию
+    const savedMaximumMisses = localStorage.getItem("maximumMisses");
+    const defaultMaximumMisses = savedMaximumMisses ? savedMaximumMisses : 3;
+    select.value = defaultMaximumMisses;
+
     select.addEventListener("change", function () {
         let selectedLose;
         let selectedOption = select.value;
@@ -57,6 +64,7 @@ export function SelectLose() {
         }
 
         data.settings.maximumMissesCount = selectedLose;
+        localStorage.setItem("maximumMisses", selectedLose);
 
     });
 

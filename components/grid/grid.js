@@ -7,6 +7,7 @@ export function Grid() {
     containerTable.className = "table-container"
     const container = document.createElement("table");
 
+
     for (let y = 0; y < data.settings.gridSize.rowsCount; y++) {
         const rowElement = document.createElement("tr")
 
