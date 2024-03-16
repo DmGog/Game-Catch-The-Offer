@@ -12,15 +12,15 @@ export function SelectIntervalTime() {
     const option1 = document.createElement("option");
     option1.text = "2000 ms";
     const option2 = document.createElement("option");
-    option2.text = "1800 ms";
+    option2.text = "1500 ms";
     const option3 = document.createElement("option");
-    option3.text = "1500 ms";
+    option3.text = "1200 ms";
     const option4 = document.createElement("option");
-    option4.text = "1300 ms";
+    option4.text = "1000 ms";
     const option5 = document.createElement("option");
-    option5.text = "1100 ms";
+    option5.text = "800 ms";
     const option6 = document.createElement("option");
-    option6.text = "1000 ms";
+    option6.text = "600 ms";
 
     select.add(option1);
     select.add(option2);
@@ -45,20 +45,20 @@ export function SelectIntervalTime() {
             case "2000 ms":
                 selectedTime = 2000;
                 break;
-            case "1800 ms":
-                selectedTime = 1800;
-                break;
             case "1500 ms":
                 selectedTime = 1500;
                 break;
-            case "1300 ms":
-                selectedTime = 1300;
-                break;
-            case "1100 ms":
-                selectedTime = 1100;
+            case "1200 ms":
+                selectedTime = 1200;
                 break;
             case "1000 ms":
                 selectedTime = 1000;
+                break;
+            case "800 ms":
+                selectedTime = 800;
+                break;
+            case "600 ms":
+                selectedTime = 600;
                 break;
 
             // проверка если case не работают
