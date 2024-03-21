@@ -1,74 +1,41 @@
 import {data} from "../../data/data.js";
 
+const optionsIntervalTime = [
+    { value: 1500, text: "Low speed 🐢" },
+    { value: 800, text: "Medium speed 🏃" },
+    { value: 600, text: "High speed 💨" }
+];
+
 export function SelectIntervalTime() {
-    const containerElement = document.createElement("div")
+    const containerElement = document.createElement("div");
     const select = document.createElement("select");
     select.id = "selectTime";
-    const selectLabel = document.createElement("label")
+
+    const selectLabel = document.createElement("label");
     selectLabel.className = "label";
-    selectLabel.textContent = "Game speed"
+    selectLabel.textContent = "Game speed";
 
+    optionsIntervalTime.forEach(optionData => {
+        const option = document.createElement("option");
+        option.value = optionData.value;
+        option.text = optionData.text;
+        select.add(option);
+    });
 
-    const option1 = document.createElement("option");
-    option1.text = "2000 ms";
-    const option2 = document.createElement("option");
-    option2.text = "1500 ms";
-    const option3 = document.createElement("option");
-    option3.text = "1200 ms";
-    const option4 = document.createElement("option");
-    option4.text = "1000 ms";
-    const option5 = document.createElement("option");
-    option5.text = "800 ms";
-    const option6 = document.createElement("option");
-    option6.text = "600 ms";
+    containerElement.append(selectLabel, select);
 
-    select.add(option1);
-    select.add(option2);
-    select.add(option3);
-    select.add(option4);
-    select.add(option5);
-    select.add(option6);
-    containerElement.append(selectLabel, select)
-
-    // Устанавливаем сохраненное значение или значение по умолчанию
-
-    const savedGameSpeed = localStorage.getItem("gameSpeed");
-    const defaultGameSpeed = savedGameSpeed ? savedGameSpeed : 2000;
-    select.value = `${defaultGameSpeed} ms`;
-
-
+   const savedGameSpeed = localStorage.getItem("gameSpeed");
+    const defaultGameSpeed = savedGameSpeed ? parseInt(savedGameSpeed) : 1500;
+    select.value = defaultGameSpeed;
 
     select.addEventListener("change", function () {
-        let selectedTime;
-        let selectedOption = select.value;
-        switch (selectedOption) {
-            case "2000 ms":
-                selectedTime = 2000;
-                break;
-            case "1500 ms":
-                selectedTime = 1500;
-                break;
-            case "1200 ms":
-                selectedTime = 1200;
-                break;
-            case "1000 ms":
-                selectedTime = 1000;
-                break;
-            case "800 ms":
-                selectedTime = 800;
-                break;
-            case "600 ms":
-                selectedTime = 600;
-                break;
+        const selectedOption = parseInt(select.value, 10);
 
-            // проверка если case не работают
-            default:
-                alert("Error");
-        }
+        const selectedTime = optionsIntervalTime.find(option => option.value === selectedOption);
 
-        data.settings.intervalTime = selectedTime;
-        localStorage.setItem("gameSpeed", selectedTime)
-
+       // setIntervalTime(selectedOption)
+        data.settings.intervalTime = selectedOption;
+       localStorage.setItem("gameSpeed", selectedOption);
     });
 
     return containerElement;

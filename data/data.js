@@ -1,3 +1,5 @@
+// import {saveSettings} from "./repository.js";
+
 export const GAME_STATUSES = {
     SETTINGS: "settings",
     IN_PROGRESS: "in-progress",
@@ -23,16 +25,26 @@ export const data = {
         },
         maximumMissesCount: 3,
         pointsToWin: 20,
-        intervalTime: 2000,
+        intervalTime: 1000,
     },
     gameStatus: GAME_STATUSES.SETTINGS,
 }
 
-let listener = null;
+
+
+// const settings = loadSettings();
+// if (dataFromLS) then data.settings = settings;
+ let listener = null;
 
 function randomCoords(N) {
     return Math.floor(Math.random() * N)
 }
+
+// export function  setIntervalTime(selectedOption) {
+//     data.settings.intervalTime = selectedOption;
+// saveSettings(data.settings)
+// }
+
 
 //перемещение Offer
 function changeOfferCoords() {

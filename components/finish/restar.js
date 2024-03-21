@@ -8,6 +8,6 @@ export function RestartButton() {
         restart()
 
     })
-
+    element.classList.add("restart-button");
     return element
 }
