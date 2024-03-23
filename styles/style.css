@@ -128,7 +128,6 @@ option {
 .end-game-card {
     width: 280px;
     height: 498px;
-    background-image: url(/assets/images/end-game-card.svg);
     position: relative;
 }
 

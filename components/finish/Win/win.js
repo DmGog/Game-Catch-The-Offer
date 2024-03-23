@@ -6,6 +6,8 @@ export function Win() {
     containerCardElement.classList.add("container-card")
     const endGameCardElement = document.createElement("div");
     endGameCardElement.classList.add("end-game-card");
+    endGameCardElement.style.backgroundImage = 'url("./assets/images/end-game-card.svg")';
+
     const winImgElement = document.createElement("img");
     winImgElement.classList.add("win-img");
     winImgElement.src = "./assets/images/win.png";
