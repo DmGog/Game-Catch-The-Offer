@@ -6,7 +6,7 @@ export function Lose() {
     containerCardElement.classList.add("container-card")
     const endGameCardElement = document.createElement("div");
     endGameCardElement.classList.add("end-game-card");
-    endGameCardElement.style.backgroundImage = 'url("./assets/images/end-game-card.svg")';
+    endGameCardElement.style.backgroundImage = 'url("../assets/images/end-game-card.svg")';
     const winImgElement = document.createElement("img");
     winImgElement.classList.add("lose-img");
     winImgElement.src = "./assets/images/lose.png";

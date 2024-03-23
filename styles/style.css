@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border: none;
 }
 
 body {
@@ -48,8 +49,8 @@ img {
     font-size: 24px;
     font-weight: 500;
     line-height: 24px;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.06);
     background: #B0C255;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1),0px 2px 4px 0px rgba(0, 0, 0, 0.06);
     font-family: Roboto, sans-serif;
 }
 
@@ -119,12 +120,13 @@ option {
 }
 
 /*finish*/
-.container-card{
+.container-card {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
+
 .end-game-card {
     width: 280px;
     height: 498px;
@@ -136,12 +138,15 @@ option {
     left: 50%;
     transform: translateX(-50%);
 }
+
 .win-img {
     top: 25px;
 }
+
 .lose-img {
     top: 31px;
 }
+
 .container {
     width: 232px;
     height: auto;
@@ -151,6 +156,7 @@ option {
     justify-content: center;
     margin: 25px;
 }
+
 h2 {
     margin-top: 137px;
     margin-bottom: 4px;
@@ -160,6 +166,7 @@ h2 {
     font-weight: 400;
     line-height: 60px;
 }
+
 h3 {
     margin-bottom: 24px;
     color: rgb(54, 118, 188);
@@ -175,19 +182,20 @@ h3 {
     flex-direction: column;
     gap: 24px;
 }
+
 .game-info {
     display: flex;
     justify-content: space-between;
 }
+
 .restart-button {
     margin-top: 32px;
     width: 183px;
     height: 48px;
     border-radius: 30px;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1),
-    0 2px 4px 0 rgba(0, 0, 0, 0.06);
     background: rgb(176, 194, 85);
     color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1),0px 2px 4px 0px rgba(0, 0, 0, 0.06);
     font-family: Roboto, sans-serif;
     font-size: 24px;
     font-weight: 500;
@@ -195,6 +203,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .game-info__title {
@@ -207,12 +216,11 @@ h3 {
 
 .game-info__score {
     color: rgb(54, 118, 188);
-    font-family: Roboto,sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 24px;
     font-weight: 500;
     line-height: 24px;
 }
-
 
 
 /* Стили для мобильных устройств (ширина экрана до 768px) */
@@ -241,13 +249,6 @@ h3 {
         line-height: 18px;
     }
 
-    .start-button {
-        width: 80%;
-        max-width: 150px;
-        font-size: 12px;
-        height: 30px;
-        line-height: 18px;
-    }
 
     .scores {
         width: 80%;
