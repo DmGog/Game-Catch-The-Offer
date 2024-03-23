@@ -5,7 +5,6 @@ export function RestartButton() {
     element.innerHTML = "Play again";
     element.addEventListener("click", () => {
         restart()
-        element.classList.add("restart-button");
     })
     return element
 }

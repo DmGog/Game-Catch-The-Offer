@@ -7,7 +7,7 @@ export function Lose() {
     const endGameCardElement = document.createElement("div");
     endGameCardElement.classList.add("end-game-card");
     const winImgElement = document.createElement("img");
-    winImgElement.classList.add("win-img");
+    winImgElement.classList.add("lose-img");
     winImgElement.src = "./assets/images/lose.png";
 
 
@@ -15,10 +15,10 @@ export function Lose() {
     containerElement.classList.add("container")
     const endGameCardTitleElement = document.createElement("h2");
     endGameCardTitleElement.classList.add("end-game-card__title");
-    endGameCardTitleElement.textContent = "You Win!";
+    endGameCardTitleElement.textContent = "You Lose!";
     const endGameCardSubtitleElement = document.createElement("h3");
     endGameCardSubtitleElement.classList.add("end-game-card__subtitle");
-    endGameCardSubtitleElement.textContent = "Congratulations"
+    endGameCardSubtitleElement.textContent = "You'll be lucky next time"
 
 
     const endGameCardInfoElement = document.createElement("div")

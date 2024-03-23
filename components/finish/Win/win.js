@@ -65,7 +65,7 @@ export function Win() {
     // кнопка restart
 
     const playAgainElement = RestartButton();
-
+    playAgainElement.classList.add("restart-button")
 
     containerElement.append(endGameCardTitleElement, endGameCardSubtitleElement, endGameCardInfoElement, playAgainElement);
 

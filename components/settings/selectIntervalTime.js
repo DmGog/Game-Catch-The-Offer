@@ -34,7 +34,7 @@ export function SelectIntervalTime() {
         const selectedTime = optionsIntervalTime.find(option => option.value === selectedOption);
 
        // setIntervalTime(selectedOption)
-        data.settings.intervalTime = selectedOption;
+        data.settings.intervalTime = selectedTime;
        localStorage.setItem("gameSpeed", selectedOption);
     });
 
