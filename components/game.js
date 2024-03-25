@@ -1,7 +1,7 @@
 import {Scores} from "./scores/scores.js";
 import {Grid} from "./grid/grid.js";
 import {Settings} from "./settings/Settings.js";
-import {data} from "../data/data.js";
+
 
 
 export function Game() {
