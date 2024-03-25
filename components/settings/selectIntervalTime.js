@@ -1,4 +1,4 @@
-import {data} from "../../data/data.js";
+import {setIntervalTime} from "../../data/data.js";
 
 const optionsIntervalTime = [
     { value: 1500, text: "Low speed 🐢" },
@@ -24,19 +24,15 @@ export function SelectIntervalTime() {
 
     containerElement.append(selectLabel, select);
 
-   const savedGameSpeed = localStorage.getItem("gameSpeed");
-    const defaultGameSpeed = savedGameSpeed ? parseInt(savedGameSpeed) : 1500;
-    select.value = defaultGameSpeed;
-
     select.addEventListener("change", function () {
         const selectedOption = parseInt(select.value, 10);
 
         const selectedTime = optionsIntervalTime.find(option => option.value === selectedOption);
 
-       // setIntervalTime(selectedOption)
-        data.settings.intervalTime = selectedTime;
-       localStorage.setItem("gameSpeed", selectedOption);
+        setIntervalTime(selectedTime)
+
     });
 
     return containerElement;
+
 }

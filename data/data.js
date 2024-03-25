@@ -1,4 +1,4 @@
-// import {saveSettings} from "./repository.js";
+import {loadSettings, saveSettings} from "./localStorage.js";
 
 export const GAME_STATUSES = {
     SETTINGS: "settings",
@@ -31,20 +31,58 @@ export const data = {
 }
 
 
+// Загрузка настроек из локального хранилища
+const settings = loadSettings();
+if (settings) {
+    data.settings = settings;
+} else {
+    // Если настроек нет в локальном хранилище, используем значения по умолчанию
+    data.settings = {
+        gridSize: {
+            columnCount: 3,
+            rowsCount: 3,
+        },
+        maximumMissesCount: 3,
+        pointsToWin: 20,
+        intervalTime: 2000,
+    };
+}
 
-// const settings = loadSettings();
-// if (dataFromLS) then data.settings = settings;
+// Функция для сохранения настроек в локальное хранилище и обновление данных
+function saveGameSettings() {
+    saveSettings(data.settings);
+}
+
+export function setIntervalTime(selectedOption) {
+    data.settings.intervalTime = selectedOption.value;
+    saveGameSettings()
+}
+
+export function setLose(selectedOption) {
+    data.settings.maximumMissesCount = selectedOption.value;
+    saveGameSettings()
+}
+
+export function setWin(selectedOption) {
+    data.settings.pointsToWin = selectedOption;
+    saveGameSettings()
+}
+
+export function setGridSize(selectedOption) {
+    data.settings.gridSize = {
+        columnCount: selectedOption[0],
+        rowsCount: selectedOption[1],
+    };
+    saveGameSettings()
+}
+
+
+
  let listener = null;
 
 function randomCoords(N) {
     return Math.floor(Math.random() * N)
 }
-
-// export function  setIntervalTime(selectedOption) {
-//     data.settings.intervalTime = selectedOption;
-// saveSettings(data.settings)
-// }
-
 
 //перемещение Offer
 function changeOfferCoords() {
@@ -88,23 +126,11 @@ export function catchOffer() {
 }
 
 export function restart() {
-    localStorage.clear();
     data.scores.catchesCount = 0;
     data.scores.missesCount = 0;
-    data.settings.gridSize.rowsCount = 3;
-    data.settings.gridSize.columnCount = 3;
-    data.settings.maximumMissesCount = 3;
-    data.settings.pointsToWin = 20;
-    data.settings.intervalTime = 2000;
     data.gameStatus = GAME_STATUSES.SETTINGS;
     listener();
 }
-
-// удалить все сохраненные настройки при обновлении страницы
-window.addEventListener('beforeunload', function(event) {
-    localStorage.clear();
-});
-
 
 export function start() {
     data.gameStatus = GAME_STATUSES.IN_PROGRESS;

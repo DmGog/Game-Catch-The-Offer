@@ -1,70 +1,38 @@
-import {data} from "../../../data/data.js";
+import {setLose} from "../../../data/data.js";
 
+
+const options = [
+    { value: 3, text: '3' },
+    { value: 5, text: '5' },
+    { value: 7, text: '7' },
+    { value: 9, text: '9' },
+    { value: 11, text: '11' },
+    { value: 13, text: '13' }
+];
 export function SelectLose() {
-    const containerElement = document.createElement("div")
+    const containerElement = document.createElement("div");
     const select = document.createElement("select");
     select.id = "selectLose";
-    const selectLabel = document.createElement("label")
+
+    const selectLabel = document.createElement("label");
     selectLabel.className = "label";
-    selectLabel.textContent = "Maximum misses"
+    selectLabel.textContent = "Maximum misses";
 
+    options.forEach(optionData => {
+        const option = document.createElement("option");
+        option.value = optionData.value;
+        option.text = optionData.text;
+        select.add(option);
+    });
 
-    const option1 = document.createElement("option");
-    option1.text = "3";
-    const option2 = document.createElement("option");
-    option2.text = "5";
-    const option3 = document.createElement("option");
-    option3.text = "7";
-    const option4 = document.createElement("option");
-    option4.text = "9";
-    const option5 = document.createElement("option");
-    option5.text = "11";
-    const option6 = document.createElement("option");
-    option6.text = "13";
-
-    select.add(option1);
-    select.add(option2);
-    select.add(option3);
-    select.add(option4);
-    select.add(option5);
-    select.add(option6);
     containerElement.append(selectLabel, select);
 
-    // Устанавливаем сохраненное значение или значение по умолчанию
-    const savedMaximumMisses = localStorage.getItem("maximumMisses");
-    const defaultMaximumMisses = savedMaximumMisses ? savedMaximumMisses : 3;
-    select.value = defaultMaximumMisses;
-
     select.addEventListener("change", function () {
-        let selectedLose;
-        let selectedOption = select.value;
-        switch (selectedOption) {
-            case "3":
-                selectedLose = 3;
-                break;
-            case "5":
-                selectedLose = 5;
-                break;
-            case "7":
-                selectedLose = 7;
-                break;
-            case "9":
-                selectedLose = 9;
-                break;
-            case "11":
-                selectedLose = 11;
-                break;
-            case "13":
-                selectedLose = 13;
-                break;
-
-            // проверка если case не работают
-            default:
-                alert("Error");
-        }
-
-        data.settings.maximumMissesCount = selectedLose;
-        localStorage.setItem("maximumMisses", selectedLose);
+        const selectedOption = parseInt(select.value, 10);
+        const selectedLose = options.find(option => option.value === selectedOption);
+        // data.settings.maximumMissesCount = selectedOption;
+        setLose(selectedLose)
+        console.log("Выбран кол-во промахов");
 
     });
 
