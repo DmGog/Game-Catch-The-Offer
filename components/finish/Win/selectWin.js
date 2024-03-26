@@ -1,7 +1,7 @@
-import {setWin} from "../../../data/data.js";
+import {data, setWin} from "../../../data/data.js";
 
 
-const options = [
+const optionsWin = [
     {value: 20, text: "20 pts"},
     {value: 30, text: "30 pts"},
     {value: 40, text: "40 pts"},
@@ -18,19 +18,24 @@ export function SelectWin() {
     selectLabel.className = "label";
     selectLabel.textContent = "Points to win";
 
-    options.forEach(optionData => {
+    containerElement.append(selectLabel, select);
+
+    optionsWin.forEach(optionData => {
         const option = document.createElement("option");
         option.value = optionData.value;
         option.text = optionData.text;
         select.add(option);
     });
 
-    containerElement.append(selectLabel, select);
+    select.selectedIndex = data.settings.selectedIndexWin
 
     select.addEventListener("change", function () {
+        const selectedIndex = select.selectedIndex
         const selectedOption = parseInt(select.value, 10);
-        setWin(selectedOption)
-        // data.settings.pointsToWin = selectedOption;
+        const selectedLose = optionsWin.find(option => option.value === selectedOption);
+        setWin(selectedLose, selectedIndex)
+        console.log(`Выбрано кол-во очков для победы  ${selectedOption}`);
+
     });
 
     return containerElement;

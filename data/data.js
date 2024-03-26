@@ -25,7 +25,11 @@ export const data = {
         },
         maximumMissesCount: 3,
         pointsToWin: 20,
-        intervalTime: 1000,
+        intervalTime: 1500,
+        selectedIndexGrid: null,
+        selectedIndexInterval: null,
+        selectedIndexWin: null,
+        selectedIndexLose: null,
     },
     gameStatus: GAME_STATUSES.SETTINGS,
 }
@@ -33,46 +37,37 @@ export const data = {
 
 // Загрузка настроек из локального хранилища
 const settings = loadSettings();
-if (settings) {
-    data.settings = settings;
-} else {
-    // Если настроек нет в локальном хранилище, используем значения по умолчанию
-    data.settings = {
-        gridSize: {
-            columnCount: 3,
-            rowsCount: 3,
-        },
-        maximumMissesCount: 3,
-        pointsToWin: 20,
-        intervalTime: 2000,
-    };
-}
+if (settings) { data.settings = settings};
 
 // Функция для сохранения настроек в локальное хранилище и обновление данных
 function saveGameSettings() {
     saveSettings(data.settings);
 }
 
-export function setIntervalTime(selectedOption) {
+export function setIntervalTime(selectedOption, selectedIndex) {
     data.settings.intervalTime = selectedOption.value;
+    data.settings.selectedIndexInterval = selectedIndex
     saveGameSettings()
 }
 
-export function setLose(selectedOption) {
+export function setLose(selectedOption, selectedIndex) {
     data.settings.maximumMissesCount = selectedOption.value;
+    data.settings.selectedIndexLose = selectedIndex
     saveGameSettings()
 }
 
-export function setWin(selectedOption) {
+export function setWin(selectedOption, selectedIndex) {
     data.settings.pointsToWin = selectedOption;
+    data.settings.selectedIndexWin = selectedIndex
     saveGameSettings()
 }
 
-export function setGridSize(selectedOption) {
+export function setGridSize(selectedOption, selectedIndex) {
     data.settings.gridSize = {
         columnCount: selectedOption[0],
         rowsCount: selectedOption[1],
     };
+    data.settings.selectedIndexGrid = selectedIndex
     saveGameSettings()
 }
 

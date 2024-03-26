@@ -1,6 +1,6 @@
-import {setGridSize} from "../../../data/data.js";
+import {data, setGridSize} from "../../../data/data.js";
 
-const options = [
+const optionsGrid = [
     { text: "3x3", value: [3, 3] },
     { text: "4x4", value: [4, 4] },
     { text: "5x5", value: [5, 5] },
@@ -20,19 +20,24 @@ export function SelectGridSize() {
 
     containerElement.append(selectLabel, select);
 
-    options.forEach(optionData => {
+    optionsGrid.forEach(optionData => {
         const option = document.createElement("option");
         option.value = optionData.value;
         option.text = optionData.text;
         select.add(option);
     });
 
+    // Устанавливаем индекс выбранного размера сетки равным значению из даты
+    select.selectedIndex = data.settings.selectedIndexGrid
+
     select.addEventListener("change", function () {
-        const selectedIndex = select.selectedIndex;
-        const selectedOption = options[selectedIndex].value;
-        setGridSize(selectedOption);
+        const selectedIndex = select.selectedIndex; //Получаем индекс выбранного элемента в выпадающем списке
+        const selectedOption = optionsGrid[selectedIndex].value; // Получаем значение выбранного размера сетки на основе индекса выбранного элемента.
+        setGridSize(selectedOption, selectedIndex);
         console.log(`Выбран размер сетки  ${selectedOption}`);
     });
+
+
     return containerElement;
 }
 
