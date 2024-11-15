@@ -31,9 +31,20 @@ export const data = {
         selectedIndexWin: 0,
         selectedIndexLose: 0,
     },
+    elapsedTime: 0,
+    timerIntervalId: null,
     gameStatus: GAME_STATUSES.SETTINGS,
 }
+function startTimer() {
+    data.elapsedTime = 0;
+    data.timerIntervalId = setInterval(() => {
+        data.elapsedTime += 1000;
+    }, 1000);
+}
 
+function stopTimer() {
+    clearInterval(data.timerIntervalId);
+}
 
 const settings = loadSettings();
 if (settings) data.settings = settings;
@@ -104,6 +115,7 @@ export function catchOffer() {
 
     if (data.scores.catchesCount === data.settings.pointsToWin) {
         data.gameStatus = GAME_STATUSES.FINISH;
+        stopTimer();
         clearInterval(offerJumpIntervalId)
     } else {
         SetCatchOffer(data.coords.x, data.coords.y);
@@ -126,6 +138,7 @@ export function restart() {
 
 export function start() {
     data.gameStatus = GAME_STATUSES.IN_PROGRESS;
+    startTimer();
     runOfferJumpInterval();
     listener();
 }
@@ -136,6 +149,7 @@ function missOffer() {
 
     if (data.scores.missesCount === data.settings.maximumMissesCount) {
         data.gameStatus = GAME_STATUSES.FINISH;
+        stopTimer()
         clearInterval(offerJumpIntervalId)
     } else {
         SetMissOffer(data.coords.x, data.coords.y);

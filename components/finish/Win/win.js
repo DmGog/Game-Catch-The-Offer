@@ -1,12 +1,19 @@
 import {data} from "../../../data/data.js";
 import {RestartButton} from "../restar.js";
 
+function formatTime(ms) {
+    const totalSeconds = Math.floor(ms / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${minutes}m ${seconds}s`;
+}
+
 export function Win() {
     const containerCardElement = document.createElement("div")
     containerCardElement.classList.add("container-card")
     const endGameCardElement = document.createElement("div");
     endGameCardElement.classList.add("end-game-card");
-    endGameCardElement.style.backgroundImage = 'url("./assets/images/end-game-card.svg")';
+    endGameCardElement.style.backgroundImage = "url(\"./assets/images/end-game-card.svg\")";
 
     const winImgElement = document.createElement("img");
     winImgElement.classList.add("win-img");
@@ -59,7 +66,7 @@ export function Win() {
     timeTitleElement.textContent = "Time:"
     const timeScoreElement = document.createElement("div")
     timeScoreElement.classList.add("game-info__score");
-    timeScoreElement.textContent = "2m 12s";
+    timeScoreElement.textContent = formatTime(data.elapsedTime);
     endGameCardInfoTimeElement.append(timeTitleElement, timeScoreElement);
 
     endGameCardInfoElement.append(endGameCardInfoCatchElement, endGameCardInfoMissElement, endGameCardInfoTimeElement);
