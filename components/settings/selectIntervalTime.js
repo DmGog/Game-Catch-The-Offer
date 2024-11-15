@@ -1,9 +1,9 @@
 import {data, setIntervalTime} from "../../data/data.js";
 
 const optionsIntervalTime = [
-    { value: 1500, text: "Low speed 🐢" },
-    { value: 800, text: "Medium speed 🏃" },
-    { value: 600, text: "High speed 💨" }
+    { value: 1600, text: "Low speed 🐢" },
+    { value: 1200, text: "Medium speed 🏃" },
+    { value: 800, text: "High speed 💨" }
 ];
 
 export function SelectIntervalTime() {

@@ -1,7 +1,6 @@
 import {data} from "../../data/data.js";
 import {Cell} from "./cell/cell.js";
 
-// алгоритм отрисовки данных
 export function Grid() {
     const containerTable = document.createElement("div")
     containerTable.className = "table-container"

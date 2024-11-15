@@ -16,8 +16,8 @@ export const data = {
         x: 0,
         y: 0,
     },
-    catchCoords: null,
-    missCoords: null,
+    catchCoords: 0,
+    missCoords: 0,
     settings: {
         gridSize: {
             columnCount: 3,
@@ -25,21 +25,19 @@ export const data = {
         },
         maximumMissesCount: 3,
         pointsToWin: 20,
-        intervalTime: 1500,
-        selectedIndexGrid: null,
-        selectedIndexInterval: null,
-        selectedIndexWin: null,
-        selectedIndexLose: null,
+        intervalTime: 1600,
+        selectedIndexGrid: 0,
+        selectedIndexInterval: 0,
+        selectedIndexWin: 0,
+        selectedIndexLose: 0,
     },
     gameStatus: GAME_STATUSES.SETTINGS,
 }
 
 
-// Загрузка настроек из локального хранилища
 const settings = loadSettings();
-if (settings) { data.settings = settings};
+if (settings) data.settings = settings;
 
-// Функция для сохранения настроек в локальное хранилище и обновление данных
 function saveGameSettings() {
     saveSettings(data.settings);
 }
@@ -57,7 +55,7 @@ export function setLose(selectedOption, selectedIndex) {
 }
 
 export function setWin(selectedOption, selectedIndex) {
-    data.settings.pointsToWin = selectedOption;
+    data.settings.pointsToWin = selectedOption.value;
     data.settings.selectedIndexWin = selectedIndex
     saveGameSettings()
 }
@@ -72,8 +70,7 @@ export function setGridSize(selectedOption, selectedIndex) {
 }
 
 
-
- let listener = null;
+let listener = null;
 
 function randomCoords(N) {
     return Math.floor(Math.random() * N)
@@ -113,9 +110,9 @@ export function catchOffer() {
         setTimeout((() => {
             ClearCatchOffer();
             listener();
-        }), data.settings.intervalTime);
-        changeOfferCoords()
-        runOfferJumpInterval();
+        }), data.settings.intervalTime)
+        changeOfferCoords();
+        runOfferJumpInterval()
     }
     listener();
 }

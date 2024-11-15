@@ -27,12 +27,11 @@ export function SelectGridSize() {
         select.add(option);
     });
 
-    // Устанавливаем индекс выбранного размера сетки равным значению из даты
     select.selectedIndex = data.settings.selectedIndexGrid
 
     select.addEventListener("change", function () {
-        const selectedIndex = select.selectedIndex; //Получаем индекс выбранного элемента в выпадающем списке
-        const selectedOption = optionsGrid[selectedIndex].value; // Получаем значение выбранного размера сетки на основе индекса выбранного элемента.
+        const selectedIndex = select.selectedIndex;
+        const selectedOption = optionsGrid[selectedIndex].value;
         setGridSize(selectedOption, selectedIndex);
         console.log(`Выбран размер сетки  ${selectedOption}`);
     });

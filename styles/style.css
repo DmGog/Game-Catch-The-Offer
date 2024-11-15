@@ -58,7 +58,6 @@ img {
 
 }
 
-/*стили для select*/
 select {
     display: flex;
     flex-direction: column;
@@ -123,7 +122,6 @@ option {
     font-family: Roboto, sans-serif;
 }
 
-/*finish*/
 .container-card {
     display: flex;
     justify-content: center;
@@ -227,7 +225,6 @@ h3 {
 }
 
 
-/* Стили для мобильных устройств (ширина экрана до 768px) */
 @media only screen and (max-width: 768px) {
     .table-container {
         align-items: center;
