@@ -1,6 +1,5 @@
 import {data, setWin} from "../../../data/data.js";
 
-
 const optionsWin = [
     {value: 20, text: "20 pts"},
     {value: 30, text: "30 pts"},
@@ -10,15 +9,9 @@ const optionsWin = [
     {value: 100, text: "100 pts"}
 ];
 
-export function SelectWin() {
-    const containerElement = document.createElement("div");
+function createSelectElement() {
     const select = document.createElement("select");
     select.id = "selectWin";
-    const selectLabel = document.createElement("label");
-    selectLabel.className = "label";
-    selectLabel.textContent = "Points to win";
-
-    containerElement.append(selectLabel, select);
 
     optionsWin.forEach(optionData => {
         const option = document.createElement("option");
@@ -27,17 +20,31 @@ export function SelectWin() {
         select.add(option);
     });
 
-    select.selectedIndex = data.settings.selectedIndexWin
+    select.selectedIndex = data.settings.selectedIndexWin;
+
+    return select;
+}
+
+function createLabelElement() {
+    const selectLabel = document.createElement("label");
+    selectLabel.className = "label";
+    selectLabel.textContent = "Points to win";
+    return selectLabel;
+}
+
+export function SelectWin() {
+    const containerElement = document.createElement("div");
+    const select = createSelectElement();
+    const selectLabel = createLabelElement();
+
+    containerElement.append(selectLabel, select);
 
     select.addEventListener("change", function () {
-        const selectedIndex = select.selectedIndex
         const selectedOption = parseInt(select.value, 10);
-        const selectedLose = optionsWin.find(option => option.value === selectedOption);
-        setWin(selectedLose, selectedIndex)
-        console.log(`Выбрано кол-во очков для победы  ${selectedOption}`);
-
+        const selectedWin = optionsWin.find(option => option.value === selectedOption);
+        setWin(selectedWin, select.selectedIndex);
+        console.log(`Выбрано кол-во очков для победы: ${selectedOption}`);
     });
 
     return containerElement;
 }
-

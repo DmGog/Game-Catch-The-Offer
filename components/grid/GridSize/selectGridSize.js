@@ -1,12 +1,10 @@
 import {data, setGridSize} from "../../../data/data.js";
 
 const optionsGrid = [
-    { text: "3x3", value: [3, 3] },
-    { text: "4x4", value: [4, 4] },
-    { text: "5x5", value: [5, 5] },
-    { text: "6x6", value: [6, 6] },
-    { text: "7x7", value: [7, 7] },
-    { text: "8x8", value: [8, 8] },
+    {text: "3x3", value: [3, 3]},
+    {text: "4x4", value: [4, 4]},
+    {text: "5x5", value: [5, 5]},
+    {text: "6x6", value: [6, 6]},
 ];
 
 export function SelectGridSize() {
