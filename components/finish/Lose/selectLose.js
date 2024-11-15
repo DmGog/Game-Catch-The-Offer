@@ -1,5 +1,4 @@
-import {data, setLose} from "../../../data/data.js";
-
+import { data, setLose } from "../../../data/data.js";
 
 const optionsLose = [
     { value: 3, text: '3' },
@@ -9,15 +8,10 @@ const optionsLose = [
     { value: 11, text: '11' },
     { value: 13, text: '13' }
 ];
-export function SelectLose() {
-    const containerElement = document.createElement("div");
+
+function createSelectElement() {
     const select = document.createElement("select");
     select.id = "selectLose";
-
-    const selectLabel = document.createElement("label");
-    selectLabel.className = "label";
-    selectLabel.textContent = "Maximum misses";
-    containerElement.append(selectLabel, select);
 
     optionsLose.forEach(optionData => {
         const option = document.createElement("option");
@@ -26,16 +20,30 @@ export function SelectLose() {
         select.add(option);
     });
 
+    select.selectedIndex = data.settings.selectedIndexLose;
 
-    select.selectedIndex = data.settings.selectedIndexLose
+    return select;
+}
+
+function createLabelElement() {
+    const selectLabel = document.createElement("label");
+    selectLabel.className = "label";
+    selectLabel.textContent = "Maximum misses";
+    return selectLabel;
+}
+
+export function SelectLose() {
+    const containerElement = document.createElement("div");
+    const select = createSelectElement();
+    const selectLabel = createLabelElement();
+
+    containerElement.append(selectLabel, select);
 
     select.addEventListener("change", function () {
-        const selectedIndex = select.selectedIndex
         const selectedOption = parseInt(select.value, 10);
         const selectedLose = optionsLose.find(option => option.value === selectedOption);
-        setLose(selectedLose,selectedIndex)
-        console.log(`Выбрано кол-во промахов  ${selectedOption}`);
-
+        setLose(selectedLose, select.selectedIndex);
+        console.log(`Выбрано кол-во промахов: ${selectedOption}`);
     });
 
     return containerElement;
