@@ -1,6 +1,6 @@
 import {data} from "../../data/data.js";
-import {Win} from "./Win/win.js";
-import {Lose} from "./Lose/lose.js";
+import {Win} from "./win/win.js";
+import {Lose} from "./lose/lose.js";
 
 export function Finish() {
     const element = document.createElement("div")

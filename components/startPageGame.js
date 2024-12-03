@@ -1,8 +1,8 @@
-import {SelectGridSize} from "./grid/GridSize/selectGridSize.js";
-import {SelectWin} from "./finish/Win/selectWin.js";
+import {SelectGridSize} from "./grid/gridSize/selectGridSize.js";
+import {SelectWin} from "./finish/win/selectWin.js";
 import {SelectIntervalTime} from "./settings/selectIntervalTime.js";
 import {StartButton} from "./settings/startButton.js";
-import {SelectLose} from "./finish/Lose/selectLose.js";
+import {SelectLose} from "./finish/lose/selectLose.js";
 
 
 export function StartPageGame() {

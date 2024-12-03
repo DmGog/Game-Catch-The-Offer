@@ -1,6 +1,6 @@
-import {SelectGridSize} from "../grid/GridSize/selectGridSize.js";
-import {SelectWin} from "../finish/Win/selectWin.js";
-import {SelectLose} from "../finish/Lose/selectLose.js";
+import {SelectGridSize} from "../grid/gridSize/selectGridSize.js";
+import {SelectWin} from "../finish/win/selectWin.js";
+import {SelectLose} from "../finish/lose/selectLose.js";
 import {SelectIntervalTime} from "./selectIntervalTime.js";
 
 
